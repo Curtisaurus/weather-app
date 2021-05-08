@@ -1,0 +1,28 @@
+.container-fluid {
+    height: 100vh;
+}
+
+.five-day {
+    background-color: rgb(36, 36, 58);
+    color: white;
+}
+
+.five-day img {
+    height: 4em;
+    width: 4em;
+}
+
+#favorable {
+    background-color: green;
+    color: white;
+}
+
+#moderate {
+    background-color: yellow;
+    color: black;
+}
+
+#severe {
+    background-color: red;
+    color: white;
+}

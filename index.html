@@ -5,13 +5,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="style.css" /> -->
-  <title>Git it Done</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+  <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <script src="script.js"></script>
+  <header class="jumbotron jumbotron-fluid p-2 bg-primary">
+    <h1 class="text-center fs-3">Weather Dashboard</h1>
+  </header>
+  <!-- container for all but the header -->
+  <div class="container-fluid">
+    <!-- part of container, required for using columns -->
+    <div class="row me-1 mt-1 h-100">
+      <!-- "navbar" city search column -->
+      <div class="col-3">
+        <form id="citySearch">
+          <div class="mb-3">
+            <label for="cityInput" class="form-label fs-3 fw-bold">Search for a City:</label>
+            <input id="cityInput" class="form-control" type="text" placeholder="San Diego"></input>
+          </div>
+          <button type="submit" class="w-100 btn btn-primary">Search</button>
+        </form>
+      </div>
+      <!-- dashboard info area -->
+      <div class="col-9">
+        <!-- current conditions div -->
+        <div id="currentConditions" class="row border border-dark">
+          <!-- info for current conditions in selected city dynamically generated here -->
+        </div>
+        <!-- 5-day forecast row -->
+        <p class="fw-bold">5-Day Forecast:</p>
+        <div class="row h-25 justify-content-between">
+          <div id="day1" class="col-2 five-day d-flex flex-column justify-content-between"></div>
+          <div id="day2" class="col-2 five-day d-flex flex-column justify-content-between"></div>
+          <div id="day3" class="col-2 five-day d-flex flex-column justify-content-between"></div>
+          <div id="day4" class="col-2 five-day d-flex flex-column justify-content-between"></div>
+          <div id="day5" class="col-2 five-day d-flex flex-column justify-content-between"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
