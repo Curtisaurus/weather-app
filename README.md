@@ -10,7 +10,7 @@ This application uses jQuery and Moment.js javascript libraries and utilises a b
 
 ## Demo
 
-![An animated gif showing a user search for multiple cities and use the persistent search buttons](weatherdashboard.gif)
+![An animated gif showing a user search for multiple cities and use the persistent search buttons](WeatherDashboard.gif)
 
 [Github Repo](https://github.com/Curtisaurus/weather-app)
 
