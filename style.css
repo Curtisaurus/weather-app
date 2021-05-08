@@ -26,3 +26,8 @@
     background-color: red;
     color: white;
 }
+
+#search-history {
+    border-top: 1px solid rgb(85, 85, 85);
+    margin-top: 1em;
+}

@@ -7,13 +7,45 @@ var citySearch = $('#citySearch');
 // gets div to hold current weather conditions
 var currentConditions = $('#currentConditions');
 
+// gets div for appending search history buttons
+var searchHistory = $("#search-history")
+
+// gets previous search history
+var savedSearches = localStorage.getItem("searches");
+
+// get clear button element
+var clearBtn = $('#clear');
+
+// converts string to array or creates empty array if none exists
+if (!savedSearches) {
+    searches = [];
+} else {
+    searches = JSON.parse(savedSearches);
+}
+
+// renders previous search history buttons
+$( document ).ready(function() {
+    for (i = 0; i < searches.length; i++) {
+        newButton = $('<button></button>').addClass("btn btn-secondary my-1 w-100").text(searches[i])
+        searchHistory.append(newButton);
+    }
+})
+
+clearBtn.click(function() {
+    searches = []
+    localStorage.clear()
+    searchHistory.html('')
+})
+
+searchHistory.on("click", "button", function(event) {
+    getWeather(event.target.textContent)
+})
+
 citySearch.submit(function(event) {
     
     //turns the input into a single query string
     city = cityInput.val().trim().split(' ').join('+').toLowerCase();
     cityString = cityInput.val().trim()
-
-    currentConditions.html('');
 
     //prevents page reload on submit
     event.preventDefault()
@@ -53,6 +85,8 @@ function getForecast(currentData, latitude, longitude) {
 
 // displays selected city's weather on the page
 function renderWeather(now, forecast) {
+    //clears the current conditions div and input textbox
+    currentConditions.html('');
     // gets todays date
     today = moment().format("(M/D/YYYY)")
     // places location and date in bolded text into a created p element
@@ -112,4 +146,23 @@ function renderWeather(now, forecast) {
     }
 
     addButton(now.name)
+}
+
+function addButton(city) {
+    // exits function if city already in previous searches
+    for (i = 0; i < searches.length; i++) {
+        if (city == searches[i]) {
+            return;
+        }
+    }
+
+    searches.push(city);
+
+    localStorage.setItem("searches", JSON.stringify(searches))
+
+    newButton = $('<button></button>').addClass("btn btn-secondary my-1 w-100").text(city)
+
+    searchHistory.append(newButton);
+
+
 }
