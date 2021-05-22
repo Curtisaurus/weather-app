@@ -1,5 +1,7 @@
 # Weather App
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](license.txt)
+
 This application utilizes the [OpenWeather API](https://openweathermap.org/api) to supply data for a city-searchable weather dashboard.  Users may submit a city name and data is retrieved for current conditions as well as a 5-day forecast.  UV index is color-coded to alert user to severity and possible hazard.  Input will accept city names regardless of case but submitting cities not in the OpenWeather database or non-city name strings will produce no effect on the page.
 
 ## Persistent Results -
